@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --primary: 15, 23, 42; /* Slate 900 */
+    --accent: 180, 83, 9; /* Amber 700 */
+    --background: 248, 250, 252; /* Slate 50 */
+  }
+
+  body {
+    @apply bg-slate-50 text-slate-900 font-sans antialiased;
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-serif;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-white border border-slate-200 shadow-sm transition-all duration-300;
+  }
+
+  .glass-card:hover {
+    @apply shadow-xl border-slate-300 -translate-y-1;
+  }
+
+  .btn-primary {
+    @apply bg-slate-900 text-white px-8 py-3 rounded-none font-bold uppercase tracking-widest text-xs hover:bg-slate-800 transition-all active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .input-field {
+    @apply w-full px-4 py-3 rounded-none border border-slate-300 focus:border-slate-900 outline-none transition-all bg-white placeholder:text-slate-400;
+  }
+
+  .section-title {
+    @apply text-4xl font-extrabold text-slate-900 mb-2 relative inline-block;
+  }
+
+  .section-title::after {
+    content: '';
+    @apply absolute -bottom-2 left-0 w-12 h-1 bg-amber-600;
+  }
+
+  .icon-wrapper {
+    @apply flex items-center justify-center p-3 border border-slate-100 bg-slate-50 text-slate-700 mr-4 shrink-0;
+  }
+
+  .premium-tag {
+    @apply px-3 py-1 bg-amber-50 text-amber-800 border border-amber-200 text-xs font-bold uppercase tracking-wider;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  @apply bg-slate-100;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-slate-300 rounded-full hover:bg-slate-400 transition-colors;
+}
